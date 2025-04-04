@@ -19,10 +19,24 @@ public class JpaMain {
         transaction.begin();
         try {
             // 멤버스 저장하기
-            Members members = new Members();
-            members.setId(2L);
-            members.setName("HelloB");
-            entityManager.persist((members));
+            //  Members members = new Members();
+            //  members.setId(1L);
+            //  members.setName("A_Hello");
+            //  entityManager.persist((members));
+
+            // 검색하기
+            // Members findMembers =  entityManager.find(Members.class, 1L);
+            // System.out.println("findMembers.id = " + findMembers.getId());
+            // System.out.println("findMembers.name = " + findMembers.getName());
+
+            // 삭제
+            // Members findMembers =  entityManager.find(Members.class, 1L);
+            // entityManager.remove(findMembers);
+
+             // 수정하기
+            Members findMembers =  entityManager.find(Members.class, 2L);
+            findMembers.setName("B_Hello");
+
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
